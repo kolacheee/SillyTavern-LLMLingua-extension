@@ -404,6 +404,14 @@ async function openCompressorDialog() {
 
             resultSection.style.display = '';
             setStatus('<i class="fa-solid fa-check"></i> Done!', 'done');
+
+            // Scroll the container so the Compress button row is at the top,
+            // making the result section visible immediately below it.
+            // setTimeout lets the display change render before we measure offsets.
+            setTimeout(() => {
+                const actionsEl = q('#llmlingua-actions');
+                dialog.scrollTop = actionsEl.offsetTop - 12;
+            }, 50);
         } catch (err) {
             console.error('[LLMLingua]', err);
             setStatus(
@@ -436,6 +444,9 @@ async function openCompressorDialog() {
     });
 
     // -------------------------------------------------------- Show popup
+    // Ensure container starts scrolled to top each time it opens
+    dialog.scrollTop = 0;
+
     await callGenericPopup(dialog, POPUP_TYPE.TEXT, '', {
         wide: true,
         large: true,
