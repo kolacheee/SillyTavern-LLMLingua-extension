@@ -1,6 +1,6 @@
-import { extension_settings, getContext } from '../../extensions.js';
-import { generateRaw, saveSettingsDebounced } from '../../../script.js';
-import { callGenericPopup, POPUP_TYPE } from '../../popup.js';
+import { extension_settings, getContext } from '../../../extensions.js';
+import { generateRaw, saveSettingsDebounced } from '../../../../script.js';
+import { callGenericPopup, POPUP_TYPE } from '../../../popup.js';
 
 const EXT_NAME = 'llmlingua';
 
